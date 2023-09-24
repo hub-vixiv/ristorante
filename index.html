@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Ristorante | 本場のイタリア料理に出会える店</title>
+  <link rel="icon" type="image/ico" href="./imgs/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Serif+JP:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+  <header class="header">
+    <!-- トップへ戻るボタン -->
+    <a class="to_pagetop" href="#"><div class="pagetop_arrow"></div></a>
+    
+    <div class="header_img">
+        <div class="bgImg img1"></div>
+        <div class="bgImg img2"></div>
+        <div class="bgImg img3"></div>
+    </div>
+    <div class="header_wrap">
+    <div class="header_left">
+      <h1><a href="#">Ristorante</a></h1>
+    </div>
+
+    <div class="header_right">
+        <div class="header_menu">
+            <nav>
+                <ul class="nav_ul">
+                    <li class="nav_li"><a href="#menu">menu</a></li>
+                    <li class="nav_li"><a href="#about">about</a></li>
+                    <li class="nav_li"><a href="#location">location</a></li>
+                </ul>
+              
+            </nav>
+        </div>
+      <!-- ハンバーガーボタン -->
+      <div class="open_btn"><span></span><span></span><span></span>
+      </div>
+    </div>
+    </div><!--//header_wrap -->
+  </header>
+
+  <main>
+    <div class="section_wrap">
+
+        <section class="menu" id="menu">
+            <h2 class="section_title">menu</h2>
+            <p class="menu_text">当店では、おまかせコースのみとなっております。<br>
+              下記はコースに含まれる料理の一例です。
+            </p>
+            <div class="menu_items">
+              <img class="fade_item" src="./imgs/pasta-1854245_640.jpg" alt="pasta">
+              <img class="fade_item" src="./imgs/pasta-3547078_640.jpg" alt="pasta">
+              <img class="fade_item" src="./imgs/pizza-3010062_640.jpg" alt="pizza">
+              <img class="fade_item" src="./imgs/antipasto-3484840_640.jpg" alt="antipasto">
+              <img class="fade_item" src="./imgs/food-1485024_640.jpg" alt="food">
+              <img class="fade_item" src="./imgs/kagyana-2955466_640.jpg" alt="kagyana">
+              <img class="fade_item" src="./imgs/italian-salad-2156719_640.jpg" alt="salad">
+              <img class="fade_item" src="./imgs/italian-food-2157243_640.jpg" alt="dolce">
+              <img class="fade_item" src="./imgs/dessert-3331009_640.jpg" alt="">
+            </div>
+        </section><!-- //menu -->
+    
+        <section class="about" id="about">
+            <h2 class="section_title">about</h2>
+            <div class="about_chef_wrap section_inner ">
+              <img  class="about_photo fade_item" src="imgs/chef.jpg" alt="シェフ">
+              <div class="about_chef fade_item">
+                <p class="chef text_title">オーナーシェフ　カーラ</p>
+                <p class="about_text">
+                  故郷イタリアで経験を積み、一人でも多くの日本人に故郷の味を知ってもらいたいという思いで日本へ
+                </p>
+              </div>
+            </div>
+
+            <div class="about_shop_wrap section_inner">
+              <img class="about_photo fade_item" src="./imgs/pizza-oven-2537308_640.jpg" alt="ピザ窯" class="shop_photo">
+              <div class="about_oven fade_item">
+                <p class="oven text_title">自慢のピザ窯</p>
+                <p class="about_text">
+                  店に入るとすぐに目に入るピザ窯<br>
+                  当店のピザは全てこの窯でじっくりと焼き上げます。
+                </p>
+              </div>
+            </div>
+
+            <div class="about_material_wrap">
+              <img src="./imgs/garlic-2205090_640.jpg" alt="食材" class="about_photo fade_item">
+              <div class="about_material fade_item">
+                <p class="material text_title">新鮮な食材</p>
+                <p class="about_text">
+                  契約農家から産地直送の新鮮な野菜<br>
+                  旬の野菜をふんだんに使ったメニューをご提供します。
+                </p>
+              </div>
+            </div>
+        </section><!--//about -->
+
+        <section class="location" id="location">
+          <h2 class="section_title">location</h2>
+          <div class="map_wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12965.982332052276!2d139.71901240000003!3d35.664797449999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b6254cc464f%3A0x99773132a4b583e6!2z44CSMTA3LTAwNjIg5p2x5Lqs6YO95riv5Yy65Y2X6Z2S5bGx!5e0!3m2!1sja!2sjp!4v1695528002328!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p class="address">
+              〒107-XXXX　東京都港区南青山<br>
+              TEL　03-XXXX-XXXX
+            </p>
+          </div>
+        </section><!--//location-->
+
+    </div><!--//section_wrap -->
+  </main>
+  <footer class="footer">
+    <div class="footer_main">
+    </div>
+    <div class="footer_copy">
+      &copy; Niko web 2023
+    </div>
+  </footer>
+<script type="text/javascript" language="javascript" src="js/jquery-3.7.0.min.js"></script>
+<script type="text/javascript" language="javascript" src="./js/script.js" defer></script>
+
+</body>
+</html>

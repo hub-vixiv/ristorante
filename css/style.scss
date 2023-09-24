@@ -1,0 +1,576 @@
+@charset "utf-8";
+
+/*
+Theme Name:Tomomi-01
+Author: Office Niko
+Version 1.0.1
+*/
+
+/*--------------------
+Base
+----------------------*/
+$key_color: #af9b65 ; /*example nav's background-color*/
+$bg_color: #fff ; /*example button's background-dolor*/
+$font_color: #333 ; /*example button's font color*/
+$font_color2: #fff ; /*example button's point color*/
+
+$bp_m : 767px;    /* m = mobile */
+$bp_t : 768px;    /* t = tablet */
+$bp_pc: 1280px;
+
+/* media mixin */
+/* ＰＣファースト 指定以下に適用 */
+@mixin media_tab(){
+  @media screen and (max-width: $bp_pc){
+    @content;
+  }
+}
+@mixin media_m(){
+  @media screen and (max-width: $bp_t){
+    @content;
+  }
+}
+
+/*--------------------
+共通設定
+----------------------*/
+*, *::before, *::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  scroll-behavior: smooth;
+  margin: 0 auto;
+  padding: 0;
+  color: $font_color;
+  font-family: 'Montserrat','Noto Serif JP', serif;
+}
+a{
+  text-decoration: none;
+  color: $font_color;
+}
+
+li{
+  list-style: none;
+  list-style-position: inside;
+}
+img{
+  max-width: 100%;
+  vertical-align: bottom;
+}
+h1,h2,h3,h4,h5,h6{
+  text-align: center;
+}
+section{
+  padding: 80px 0 50px;
+}
+.section_title{
+    display: inline-block;
+    font-size: 48px;
+    font-family: 'Montserrat';
+    position: relative;
+    margin-bottom: 70px;
+    &::after{
+        content: "";
+        width: 80%;
+        height: 8px;
+        border-radius: 4px;
+        background-color: $key_color;
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        transform: translate(50%,0);
+    }
+}
+
+.fade_item{
+  opacity: 0;
+  transform: translate(0,30%);
+  transition: 0.5S;
+  &.fade_active{
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+.text_title{
+  font-size: 32px;
+  // font-family: 'Montserrat';
+}
+.section_inner{
+  margin: 0 0 70px;
+}
+
+
+/*--------------------
+
+----------------------*/
+  /*ページトップへ戻るボタン*/
+  .to_pagetop {
+    height: 8vh;
+    width: 8vh;
+    position: fixed;
+    right: 5vw;
+    bottom: 5vh;
+    background: $key_color;
+    border: solid 2px $bg_color;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    &.active{
+        display: flex;
+    }
+    .pagetop_arrow {
+      height: 3vh;
+      width: 3vh;
+      border-top: 3px solid $bg_color;
+      border-right: 3px solid $bg_color;
+      transform: translateY(20%) rotate(-45deg);
+    }
+  }
+
+.swiper{
+    height: 80vh;
+    .swiper-wrapper{
+        .swiper-slide{
+            img{
+                object-fit: cover;
+                object-position: 50% 50%;
+
+            }
+        }
+    }
+}
+/*--------------------
+fv背景画像
+----------------------*/
+.header_img{
+    position   : relative;
+    max-width  : 100%;
+    width      : 100%;
+    height     : 80vw;
+    margin     : auto;
+    overflow   : hidden;
+    transition: 1s;
+      
+    .bgImg {
+        position   : absolute;
+        top        : 0;
+        left       : 0;
+        opacity    : 0;
+        transition: 1s;
+        height: 80vw;
+          width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        // background-size: 100vw 80vh;
+        background-size: cover;
+        animation  : bg_fade 24s infinite;   /* 4画像 × 各5s = 20s */
+      }
+    .img1{
+        background-image: url(../imgs/fv1.jpg);
+        animation-delay: -2s;
+    }
+    .img2{
+        background-image: url(../imgs/fv2.jpg);
+        animation-delay: 6s;
+    }   
+    .img3{
+        background-image: url(../imgs/fv3.jpg);
+        animation-delay: 14s;
+    }
+}
+@keyframes bg_fade {
+       0%{opacity: 0; transform: scale(1.2);}
+    4.16%{opacity: 1;}
+   33.33%{opacity: 1;}
+   41.66%{opacity: 0; transform: scale(1);}
+     100%{opacity: 0;}
+}
+
+/*--------------------
+ヘッダー
+----------------------*/
+.header{
+  position: relative;
+}
+.header_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform:translate(-50%,0);
+  z-index: 10;
+  margin: 0;
+  width: 100%;
+  padding: 0 30px;
+  transition: 0.3s;
+  background-color: transparent;
+  &.fixed{
+    position: fixed;
+    background-color: $key_color;
+  }
+  .header_left{
+    h1{
+        text-align: left;
+        font-family: 'Pacifico', cursive;
+        font-size: 72px;
+        text-shadow: 4px 4px 6px $key_color;
+        a{
+            color: $font_color2;
+
+        }
+    }
+  }
+
+  .header_menu{
+    nav{
+      transition: 1s;
+      ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li{
+          text-align: center;
+          padding: 0 30px;
+          font-size: 56px;
+          font-family: 'Pacifico', cursive;
+          text-shadow: 3px 3px 6px #000;
+        }   
+        a{
+            display: block;
+            width: 100%;
+            color: $font_color2;
+        }
+      }
+    }
+  }
+
+  .header_right{
+  /*ハンバーガーボタン*/
+  .open_btn{
+    position: relative;/*ボタン内側の基点となるためrelativeを指定*/
+    z-index: 30;
+    color:$font_color2;
+    cursor: pointer;
+    width: 50px;
+    height:50px;
+    border-radius: 5px;
+    margin-right: 2vw;
+    display: none;
+
+  }
+  /*ボタン内側*/
+  .open_btn{
+    background-color: $key_color;
+  }
+  .open_btn span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 14px;
+    height: 2px;
+    border-radius: 5px;
+    background: $font_color2;
+    width: 45%;
+    }
+  .open_btn span:nth-of-type(1) {
+    top:13px;
+  }
+  .open_btn span:nth-of-type(2) {
+    top:19px;
+  }
+  .open_btn span:nth-of-type(3) {
+    top:25px;
+  }
+  .open_btn span:nth-of-type(3)::after {
+    content:"Menu";/*3つ目の要素のafterにMenu表示を指定*/
+    position: absolute;
+    top:5px;
+    left:-2px;
+    color: $font_color2;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+  }
+  /*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+  .open_btn.active span:nth-of-type(1) {
+    top: 14px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+  }
+  .open_btn.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+  .open_btn.active span:nth-of-type(3){
+    top: 26px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+  }
+  .open_btn.active span:nth-of-type(3)::after {
+    content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+    transform: translateY(0) rotate(-45deg);
+    top:5px;
+    left:4px;
+  }
+  }
+}
+
+/*--------------------
+メイン
+----------------------*/
+main{
+    width: 100%;
+  .section_wrap{
+    width: 1200px;
+    margin: 0 auto;
+
+    /*--------------------
+    menu
+    ----------------------*/
+    .menu{
+      .menu_text{
+        text-align: center;
+        font-size: 24px;
+        margin: 30px auto;
+
+      }
+      .menu_items{
+        margin: 30px auto 70px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 70px;
+        img{
+          display: block;
+          width: 280px;
+          box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.36);
+        }
+      }
+    }
+
+    /*--------------------
+    about
+    ----------------------*/
+    .about{
+      .about_photo{
+        display: block;
+        width: 500px;
+        object-fit: cover;
+      }
+      .about_text{
+        font-size: 24px;
+        margin: 30px 0;
+      }
+      .about_chef_wrap{
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        
+      }
+      .about_shop_wrap{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 40px;
+      }
+      .about_material_wrap{
+        display: flex;
+        gap: 40px;
+      }
+    }
+
+    /*--------------------
+    location
+    ----------------------*/
+    .location{
+      .map_wrap{
+        iframe{
+          display: block;
+          margin: 0 auto;
+          width: 1000px;
+          height: 400px;
+        }
+        .address{
+          text-align: center;
+          font-family: serif;
+          font-size: 32px;
+        }
+      }
+    }
+  }
+}
+
+.footer{
+  .footer_copy{
+    text-align: center;
+    background-color: $key_color;
+    height: 80px;
+    line-height: 80px;
+    font-family: 'Pacifico', cursive;
+    font-size: 24px;
+    color: $font_color2;
+  }
+}
+/*--------------------
+メディアクエリ
+----------------------*/
+@include media_tab(){
+  .header_wrap{
+    .header_left{
+      h1{
+        font-size: 48px;
+      }
+    }
+    .header_right{
+      .header_menu{
+        nav{
+          .nav_ul{
+            .nav_li{
+              font-size: 32px;
+            }
+          }
+        }
+      }
+      .open_btn{
+        // display: block;
+      }
+    }
+  }
+
+  main{
+    .section_wrap{
+      width: 80vw;
+      margin: 0 auto;
+      .about{
+        .about_chef_wrap,
+        .about_shop_wrap,
+        .about_material_wrap{
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+        .about_photo,{
+          width: 80vw;
+        }
+        .text_title{
+          margin-top: 70px;
+        }
+        .about_text{
+          margin-bottom: 30px;
+          width: 80vw;
+        }
+      }
+      .location{
+        .map_wrap{
+          iframe{
+            width: 80vw;
+            height: 300px;
+          }
+          .address{
+            font-size: 24px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@include media_m(){
+  .header{
+    .header_img{
+      height: 60vh;
+      .bgImg{
+        height: 60vh;
+        background-size: cover;
+      }
+    }
+
+    .header_wrap{
+      .header_left{
+        h1{
+          font-size: 48px;
+        }
+      }
+      .header_right{
+        .header_menu{
+          position: fixed;
+          top: 0;
+          right:-100%;
+          z-index: 20;
+          width: 100vw;
+          height: 100vh;
+          background-color: $key_color;
+          opacity: 0;
+          transition: 0.5s;
+          // display: none;
+          &.active{
+            opacity: 1;
+            display: block;
+            right: 0;
+          }
+          nav{
+            width: 100%;
+            height: 100%;
+            .nav_ul{
+              padding: 80px 0;
+              flex-direction: column;
+              .nav_li{
+
+              }
+            }
+          }
+        }
+        .open_btn{
+          display: block;
+        }
+      }
+    }
+  }
+
+  main{
+    .section_wrap{
+      width: 90vw;
+      .menu{
+        margin: 0 auto;
+        .menu_text{
+          text-align: left;
+        }
+      }
+      .about{
+        .about_chef_wrap,
+        .about_shop_wrap,
+        .about_material_wrap{
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+        .about_photo,{
+          width: 80vw;
+        }
+        .text_title{
+          margin-top: 70px;
+        }
+        .about_text{
+          margin-bottom: 30px;
+          width: 80vw;
+        }
+      }
+      .location{
+        .map_wrap{
+          iframe{
+            width: 90vw;
+            height: 300px;
+          }
+          .address{
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}
