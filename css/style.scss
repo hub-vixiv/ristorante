@@ -1,11 +1,5 @@
 @charset "utf-8";
 
-/*
-Theme Name:Tomomi-01
-Author: Office Niko
-Version 1.0.1
-*/
-
 /*--------------------
 Base
 ----------------------*/
@@ -45,6 +39,7 @@ body{
   padding: 0;
   color: $font_color;
   font-family: 'Montserrat','Noto Serif JP', serif;
+  overflow-x: hidden;
 }
 a{
   text-decoration: none;
